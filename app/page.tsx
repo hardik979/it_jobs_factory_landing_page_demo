@@ -148,7 +148,7 @@ export default function Page() {
           </div>
 
           {/* Form - Bottom Half */}
-          <div className="h-[45%] bg-gradient-to-br from-slate-900 via-cyan-900 to-slate-900  p-6 rounded-b-md shadow-xl text-white">
+          <div className="md:h-[45%] bg-gradient-to-br from-slate-900 via-cyan-900 to-slate-900  p-6 rounded-b-md shadow-xl text-white">
             <h3 className="text-xl font-semibold mb-4 text-center text-white">
               Book Your Free Career Counseling
             </h3>
