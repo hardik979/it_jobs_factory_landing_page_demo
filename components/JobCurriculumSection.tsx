@@ -147,29 +147,125 @@ const sqlCurriculum: CurriculumItem[] = [
 const linuxCurriculum: CurriculumItem[] = [
   {
     id: 1,
-    title: "Linux Curriculum",
+    title: "Linux Basics & Commands",
+    addon: "Core Linux foundation",
+    duration: "4 days",
     topics: [
       "Installation and History of Linux",
       "Basic commands",
       "File System Navigation & Maintenance",
       "File System Display Commands",
       "List commands filesystem",
+    ],
+  },
+  {
+    id: 2,
+    title: "Search, Edit & Text Processing",
+    addon: "Grep, Wildcards, Sed & Awk",
+    duration: "4 days",
+    topics: [
       "Grep command (Global Regular Expression Pattern)",
       "Wildcards edition",
       "Sed command (Stream editor)",
       "Awk command",
       "Cut, Sort, Uniq commands",
+    ],
+  },
+  {
+    id: 3,
+    title: "User & Permission Management",
+    addon: "Secure multi-user management",
+    duration: "3 days",
+    topics: [
       "User Management tasks",
       "File Permissioning commands",
+      "User & Link Management",
+    ],
+  },
+  {
+    id: 4,
+    title: "System Tools & Monitoring",
+    addon: "System info and performance monitoring",
+    duration: "3 days",
+    topics: [
       "Diff command, Cmp command",
       "User Session & System Monitoring Commands",
       "System Identity & Info Commands",
       "File System & Disk Utilities",
-      "User & Link Management",
+    ],
+  },
+  {
+    id: 5,
+    title: "Advanced Shell Commands",
+    addon: "Master essential Linux utilities",
+    duration: "3 days",
+    topics: [
       "Find command",
-      "Different layers of Linux architectures",
-      "Shell Scripting operators, and basic programs",
-      "Shell Scripting (if then, if then else, if elif else, do while loop)",
+      "Locate and updatedb",
+      "xargs command",
+      "tee command",
+      "head and tail utilities",
+    ],
+  },
+  {
+    id: 6,
+    title: "Linux Processes & Jobs",
+    addon: "Manage foreground & background tasks",
+    duration: "3 days",
+    topics: [
+      "ps, top, htop",
+      "bg, fg, jobs, kill, pkill",
+      "nice & renice",
+      "Process monitoring with pgrep and pstree",
+    ],
+  },
+  {
+    id: 7,
+    title: "Package Management & System Updates",
+    addon: "Install, remove, and update software",
+    duration: "2 days",
+    topics: [
+      "apt, yum, dnf basics",
+      "Software repositories",
+      "Managing dependencies",
+      "Updating and upgrading packages",
+    ],
+  },
+  {
+    id: 8,
+    title: "Networking Commands & Tools",
+    addon: "Configure & troubleshoot networking",
+    duration: "4 days",
+    topics: [
+      "ifconfig & ip commands",
+      "ping, traceroute, netstat",
+      "ss & nc basics",
+      "hostname, hosts, and DNS configs",
+    ],
+  },
+  {
+    id: 9,
+    title: "Linux Filesystems & Disk Management",
+    addon: "Optimize disk usage & manage partitions",
+    duration: "3 days",
+    topics: [
+      "df, du, and lsblk",
+      "Mounting and unmounting devices",
+      "Fstab basics",
+      "Disk quotas",
+    ],
+  },
+  {
+    id: 10,
+    title: "Linux Shell Scripting",
+    addon: "Automate tasks with Bash scripts",
+    duration: "5 days",
+    topics: [
+      "Shell Scripting operators and basic programs",
+      "Conditionals (if, if-else, elif)",
+      "Loops (for, while, until)",
+      "Functions in scripts",
+      "Practical automation examples",
     ],
   },
 ];
@@ -211,7 +307,6 @@ export default function JobCurriculumSection() {
           </button>
         </div>
       </div>
-
       {selectedCourse === "sql" ? (
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-start">
           <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2">
@@ -274,12 +369,68 @@ export default function JobCurriculumSection() {
           )}
         </div>
       ) : (
-        <div className="max-w-4xl font-bold mx-auto mt-10">
-          <ul className="list-disc list-inside space-y-3 text-base text-cyan-800">
-            {linuxCurriculum[0].topics.map((topic, idx) => (
-              <li key={idx}>{topic}</li>
-            ))}
-          </ul>
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-start">
+          <div className="space-y-4 max-h-[600px] overflow-y-auto pr-2">
+            {linuxCurriculum.map((item) => {
+              const isActive = selectedSql === item.id;
+              return (
+                <div
+                  key={item.id}
+                  onClick={() => setSelectedSql(item.id)}
+                  className={`cursor-pointer border p-4 rounded-md transition-all ${
+                    isActive
+                      ? "bg-white text-cyan-900 border-cyan-600 shadow"
+                      : "border-cyan-300 hover:border-cyan-400"
+                  }`}
+                >
+                  <div className="flex items-start gap-4">
+                    <div
+                      className={`font-bold text-lg ${
+                        isActive ? "text-cyan-700" : "text-cyan-500"
+                      }`}
+                    >
+                      0{item.id}
+                    </div>
+                    <div>
+                      <h3
+                        className={`font-semibold ${
+                          isActive ? "text-cyan-900" : "text-cyan-800"
+                        }`}
+                      >
+                        {item.title}
+                      </h3>
+                      <p
+                        className={`text-sm ${
+                          isActive ? "text-cyan-700" : "text-cyan-600"
+                        }`}
+                      >
+                        Add-On: {item.addon}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {linuxCurriculum.find((i) => i.id === selectedSql) && (
+            <div className="bg-white border border-cyan-200 rounded-md p-6 h-fit shadow-sm">
+              <div className="flex justify-between mb-4">
+                <h4 className="text-lg font-semibold text-cyan-900">Topics</h4>
+                <span className="text-sm text-sky-600 font-medium">
+                  Duration:{" "}
+                  {linuxCurriculum.find((i) => i.id === selectedSql)?.duration}
+                </span>
+              </div>
+              <ul className="list-disc list-inside space-y-2 text-sm text-cyan-800">
+                {linuxCurriculum
+                  .find((i) => i.id === selectedSql)
+                  ?.topics.map((topic, idx) => (
+                    <li key={idx}>{topic}</li>
+                  ))}
+              </ul>
+            </div>
+          )}
         </div>
       )}
     </section>

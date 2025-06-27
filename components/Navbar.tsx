@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import {
   IconMenu2,
   IconX,
@@ -73,12 +73,12 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 bg-black  [font-family:var(--font-raleway)] text-cyan-800 px-6 py-4 shadow-md">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-black   text-cyan-800 px-6 py-4 shadow-md">
         <div className="flex items-center justify-between">
           {/* Logo + Dropdown */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center  gap-4">
             <Link href="/">
-              <div className="relative w-10 h-10">
+              <div className="relative rounded-2xl w-10 h-10">
                 <Image
                   src="/logo.png"
                   alt="Logo"
@@ -88,10 +88,10 @@ export default function Navbar() {
               </div>
             </Link>
             <Link href="/">
-              <span className="text-xl text-yellow-300 font-bold">
+              <span className="text-4xl [font-family:var(--font-righteous)]  text-yellow-300 font-bold">
                 IT{" "}
-                <span className="text-white underline underline-offset-4">
-                  JOBS FACTORY
+                <span className="text-sky-300 word-spacing underline-offset-4">
+                  Jobs Factory
                 </span>
               </span>
             </Link>
@@ -111,6 +111,7 @@ export default function Navbar() {
             <Link href="/about" className="hover:underline text-white">
               Our Story
             </Link>
+            <button className="hover:underline text-white">Contact Us</button>
           </div>
 
           {/* Hamburger (Mobile) */}

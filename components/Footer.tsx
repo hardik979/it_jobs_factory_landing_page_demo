@@ -38,7 +38,7 @@ export default function Footer() {
                 </h4>
                 <p className="text-sm text-cyan-300 leading-relaxed">
                   IT Jobs Factory, Shri Krishna Tower, Near Noble College,
-                  Makronia, Sagar, Madhya Pradesh 470004
+                  Makronia, Madhya Pradesh
                 </p>
               </div>
             </div>

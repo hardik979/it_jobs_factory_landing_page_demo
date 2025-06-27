@@ -91,7 +91,7 @@ export default function Page() {
 
       {/* HERO SECTION */}
       <section
-        className="text-white   [font-family:var(--font-merriweather)] mt-2 pt-[120px] min-h-screen py-12 px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-cyan-950"
+        className="text-white   mt-2 pt-[120px] min-h-screen py-12 px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-cyan-950"
         style={{
           backgroundImage: `
             linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
@@ -136,7 +136,7 @@ export default function Page() {
             <span>Trusted by Hiring Partners like TCS, IBM, and Accenture</span>
           </div>
 
-          <div className="space-y-3 text-md text-white">
+          <div className="space-y-4 text-md text-white word-spacing">
             <div className="flex items-start gap-2">
               <IconCircleCheckFilled
                 size={16}
@@ -204,7 +204,7 @@ export default function Page() {
           {/* Hero Image - Top Half */}
           <div className="h-[55%] flex justify-center items-center">
             <img
-              src="/code.jpg"
+              src="/code3.png"
               alt="Hero Image"
               className="shadow-2xl w-full h-full object-cover rounded-t-md"
             />
@@ -394,7 +394,7 @@ export default function Page() {
               ],
               [
                 <IconSchool size={32} className="text-cyan-600 mt-1" />,
-                "Mentorship from Real Engineers",
+                "Mentorship from Real Software Engineers",
                 "Learn directly from software engineers working at top firms.",
               ],
               [

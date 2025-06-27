@@ -1,8 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import FAQAccordion from "@/components/AccordionUse";
 import FlexibilitySection from "@/components/CardShow";
 import SuccessCarousel from "@/components/Carousel";
+import StartApplicationModal from "@/components/StartApplicationModal"; // adjust path as needed
 
 import { AlmaXTimeline } from "@/components/ui/TimelineDemo";
 
@@ -30,6 +31,8 @@ export default function HeroSection() {
     graduationYear: "",
     mobile: "",
   });
+  const [showModal, setShowModal] = useState(false);
+  const curriculumRef = useRef<HTMLDivElement | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -61,7 +64,7 @@ export default function HeroSection() {
               {/* Main Heading */}
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight">
-                  100% Job Ready Bootcamp{" "}
+                  100% Job Ready - Bootcamp{" "}
                   <span className="bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
                     With Certification
                   </span>
@@ -70,12 +73,12 @@ export default function HeroSection() {
                 {/* Rating */}
                 <div className="flex items-center gap-3 text-sm">
                   <div className="flex text-yellow-400">
-                    {[...Array(5)].map((_, i) => (
+                    {[...Array(4)].map((_, i) => (
                       <Star key={i} size={18} fill="currentColor" />
                     ))}
                   </div>
                   <span className="font-medium">
-                    Rated 4.8/5 by 10,000+ learners
+                    Rated 4.2/5 by 1,500+ learners
                   </span>
                   <div className="flex items-center gap-1 text-cyan-300">
                     <Users size={16} />
@@ -106,11 +109,22 @@ export default function HeroSection() {
 
               {/* CTA Buttons */}
               <div className="flex gap-4 flex-wrap pt-6">
-                <button className="bg-gradient-to-r from-cyan-600 to-cyan-700 text-white hover:from-cyan-700 hover:to-cyan-800 px-4 py-2 rounded-lg font-semibold text-md shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2">
+                <button
+                  onClick={() => setShowModal(true)}
+                  className="bg-gradient-to-r from-cyan-600 to-cyan-700 text-white hover:from-cyan-700 hover:to-cyan-800 px-4 py-2 rounded-lg font-semibold text-md shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2"
+                >
                   <Play size={18} />
                   Start Your Application
                 </button>
-                <button className="border-2 border-white/30 hover:bg-white hover:text-cyan-950 text-white px-4 py-2 rounded-lg font-semibold text-md backdrop-blur-sm transition-all duration-200 hover:shadow-lg">
+
+                <button
+                  onClick={() =>
+                    curriculumRef.current?.scrollIntoView({
+                      behavior: "smooth",
+                    })
+                  }
+                  className="border-2 border-white/30 hover:bg-white hover:text-cyan-950 text-white px-4 py-2 rounded-lg font-semibold text-md backdrop-blur-sm transition-all duration-200 hover:shadow-lg"
+                >
                   Explore Program
                 </button>
               </div>
@@ -278,12 +292,20 @@ export default function HeroSection() {
           </div>
         </section>
       </div>
-      <JobCurriculumSection />
+      <div ref={curriculumRef}>
+        {" "}
+        <JobCurriculumSection />
+      </div>
+
       <FAQAccordion />
       <SuccessCarousel />
 
       <AlmaXTimeline />
       <FlexibilitySection />
+      <StartApplicationModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+      />
     </>
   );
 }
