@@ -119,7 +119,7 @@ export default function HeroSection() {
               <div className="flex items-center gap-6 pt-4 text-sm text-cyan-200">
                 <div className="flex items-center gap-2">
                   <CheckCircle size={16} className="text-green-400" />
-                  <span>Guarenteed Placement</span>
+                  <span>100% Placement Assistance</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle size={16} className="text-green-400" />

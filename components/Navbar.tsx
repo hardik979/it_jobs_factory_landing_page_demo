@@ -293,7 +293,7 @@ export default function Navbar() {
 
       {/* Fixed Cyan Banner */}
       <motion.div
-        className="fixed top-[64px] z-40 w-full bg-gradient-to-r from-blue-500 to-sky-500 text-white  [font-family:var(--font-raleway)]  px-4 py-3 shadow-md"
+        className="fixed top-[64px] z-40 w-full bg-gradient-to-r from-sky-500 to-cyan-400 text-white  [font-family:var(--font-raleway)]  px-4 py-3 shadow-md"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}

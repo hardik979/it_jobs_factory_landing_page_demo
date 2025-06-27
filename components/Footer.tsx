@@ -145,7 +145,7 @@ export default function Footer() {
               <li className="leading-relaxed">
                 Career Counseling & Resume Reviews
               </li>
-              <li className="leading-relaxed">100% Job Placements</li>
+              <li className="leading-relaxed">100% Placement Assistance</li>
               <li className="leading-relaxed">
                 Support for Freshers & Working Pros
               </li>

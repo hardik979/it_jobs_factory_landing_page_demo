@@ -36,12 +36,6 @@ export default function Page() {
     phone: "",
     education: "",
   });
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -84,6 +78,7 @@ export default function Page() {
     <>
       <ToastContainer />
       <Navbar />
+
       <PopupModal />
       <a
         href="https://wa.me/+919425645642?text=Hi%2C%20can%20you%20tell%20me%20more" // Replace with your number
@@ -114,14 +109,14 @@ export default function Page() {
             Build Your Career in Tech with Real Industry Skills
           </h1> */}
 
-          <h1 className="text-5xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight text-white">
+          <h1 className="text-5xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight  ">
             <RotatingText
               texts={[
                 "Build Your Career in Tech with Real Industry Skills",
                 "Kickstart Your Career in the IT Industry",
                 "Get Ready for a Future-Proof Career in Tech",
               ]}
-              mainClassName="inline-block text-cyan-400 whitespace-nowrap text-center"
+              mainClassName="inline-block text-sky-400 whitespace-nowrap text-center"
               staggerFrom="first"
               initial={{ y: "100%", opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}

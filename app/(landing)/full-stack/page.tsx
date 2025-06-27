@@ -83,7 +83,7 @@ export default function HeroSection() {
                 {[
                   { icon: Award, text: "Globally recognized certification" },
                   { icon: BookOpen, text: "Curriculum rebuilt for the AI era" },
-                  { icon: Clock, text: "3-month flexible online learning" },
+                  { icon: Clock, text: "6-month flexible online learning" },
                   { icon: Target, text: "No prior experience needed" },
                 ].map((item, i) => (
                   <div
@@ -102,7 +102,7 @@ export default function HeroSection() {
               <div className="flex items-center gap-6 pt-4 text-sm text-cyan-200">
                 <div className="flex items-center gap-2">
                   <CheckCircle size={16} className="text-green-400" />
-                  <span>Guarenteed Placement</span>
+                  <span>100% Placement Assistance</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle size={16} className="text-green-400" />
