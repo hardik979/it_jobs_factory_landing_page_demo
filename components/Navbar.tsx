@@ -25,10 +25,22 @@ export default function Navbar() {
       slug: "bootcamp",
     },
     {
-      title: "Data Science & AI",
+      title: "Data Analytics",
       subtitle: "3-month online program •",
       tag: "100% Job Assurance",
       slug: "data-analytics",
+    },
+    {
+      title: "Dev Ops",
+      subtitle: "3-month online program •",
+      tag: "100% Job Assurance",
+      slug: "devops",
+    },
+    {
+      title: "Full Stack Web Development",
+      subtitle: "3-month online program •",
+      tag: "100% Job Assurance",
+      slug: "full-stack",
     },
   ];
 
@@ -61,7 +73,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 bg-black text-cyan-800 px-6 py-4 shadow-md">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-black  [font-family:var(--font-raleway)] text-cyan-800 px-6 py-4 shadow-md">
         <div className="flex items-center justify-between">
           {/* Logo + Dropdown */}
           <div className="flex items-center gap-4">
@@ -281,7 +293,7 @@ export default function Navbar() {
 
       {/* Fixed Cyan Banner */}
       <motion.div
-        className="fixed top-[64px] z-40 w-full bg-gradient-to-r from-cyan-600 to-sky-500 text-white px-4 py-3 shadow-md"
+        className="fixed top-[64px] z-40 w-full bg-gradient-to-r from-blue-500 to-sky-500 text-white  [font-family:var(--font-raleway)]  px-4 py-3 shadow-md"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -297,7 +309,7 @@ export default function Navbar() {
             <span className="text-sm sm:text-base font-semibold text-white tracking-wide">
               Limited Seats{" "}
               <span className="underline underline-offset-2 font-bold whitespace-nowrap">
-                Join Soon
+                Join Now
               </span>
             </span>
           </div>

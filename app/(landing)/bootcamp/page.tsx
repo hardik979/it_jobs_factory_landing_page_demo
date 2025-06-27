@@ -18,10 +18,12 @@ import {
   BookOpen,
   Target,
 } from "lucide-react";
-import CurriculumSection from "@/components/JobCurriculumSection";
+
 import JobCurriculumSection from "@/components/JobCurriculumSection";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function HeroSection() {
+  const course = "100% Job-Assistance Bootcamp";
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -37,6 +39,7 @@ export default function HeroSection() {
   };
   return (
     <>
+      <ToastContainer />
       <div className="min-h-screen flex flex-col relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-cyan-900 to-slate-900"></div>
@@ -125,11 +128,11 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* RIGHT: ENHANCED FORM */}
+            {/* RIGHT: FUNCTIONAL FORM */}
             <div className="bg-white/95 backdrop-blur-lg text-gray-800 rounded-2xl shadow-2xl p-8 w-full max-w-md mx-auto border border-white/20 hover:shadow-3xl transition-all duration-300">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold mb-2 text-gray-900">
-                  Book a Free Demo Session
+                  Book Your Free Demo Session
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   Join our expert-led session and explore your tech career path
@@ -137,7 +140,43 @@ export default function HeroSection() {
                 </p>
               </div>
 
-              <div className="space-y-4">
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+
+                  // Validate phone
+                  if (!/^\d{10}$/.test(formData.mobile)) {
+                    toast.error("Please enter a valid 10-digit phone number.");
+                    return;
+                  }
+
+                  const formBody = new URLSearchParams();
+                  formBody.append("entry.623629957", formData.email);
+                  formBody.append("entry.253505507", formData.fullName);
+                  formBody.append("entry.323010805", formData.graduationYear);
+                  formBody.append("entry.616364387", formData.mobile);
+                  formBody.append("entry.1804617433", course); // << ADD YOUR Course Name entry ID
+
+                  try {
+                    await fetch(
+                      "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfGqIOm1AojG5QBNZRSCcfrHphc77rnvaEg7_OSnZfGKm9gTA/formResponse",
+                      {
+                        method: "POST",
+                        mode: "no-cors",
+                        headers: {
+                          "Content-Type": "application/x-www-form-urlencoded",
+                        },
+                        body: formBody.toString(),
+                      }
+                    );
+                    toast.success("Session booked successfully!");
+                  } catch (error) {
+                    console.error("Submit error", error);
+                    toast.error("Failed to submit");
+                  }
+                }}
+                className="space-y-4"
+              >
                 {[
                   { name: "fullName", placeholder: "Full Name", type: "text" },
                   {
@@ -150,35 +189,53 @@ export default function HeroSection() {
                     placeholder: "Graduation Year",
                     type: "text",
                   },
-                  { name: "mobile", placeholder: "Mobile Number", type: "tel" },
                 ].map((field, i) => (
                   <div key={i} className="relative">
                     <input
                       type={field.type}
                       name={field.name}
                       placeholder={field.placeholder}
-                      value={formData[field.name as keyof typeof formData]} // ✅ type-safe access
+                      value={formData[field.name as keyof typeof formData]}
                       onChange={handleInputChange}
+                      required
                       className="w-full border-2 border-gray-200 rounded-lg px-4 py-3 text-sm focus:border-cyan-500 focus:outline-none transition-colors bg-white/80 backdrop-blur-sm hover:border-gray-300"
                     />
                   </div>
                 ))}
 
+                {/* Mobile field with +91 prefix */}
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <span className="text-cyan-300 font-medium text-sm">
+                      +91
+                    </span>
+                  </div>
+                  <input
+                    type="tel"
+                    name="mobile"
+                    placeholder="10-digit Phone Number"
+                    value={formData.mobile}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        mobile: e.target.value.replace(/\D/g, ""),
+                      })
+                    }
+                    pattern="\d{10}"
+                    maxLength={10}
+                    required
+                    className="w-full pl-12 px-3 py-3 border-2 border-gray-200 rounded-lg text-sm focus:border-cyan-500 focus:outline-none transition-colors bg-white/80 backdrop-blur-sm hover:border-gray-300"
+                  />
+                </div>
+
                 <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    console.log("Form submitted:", formData);
-                  }}
+                  type="submit"
                   className="bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 text-white w-full py-4 rounded-lg text-base font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2"
                 >
                   <Calendar size={18} />
                   Book Your Demo Session
                 </button>
-              </div>
-
-              <div className="mt-4 text-center text-xs text-gray-500">
-                <p>By submitting, you agree to our Terms & Privacy Policy</p>
-              </div>
+              </form>
             </div>
           </div>
         </section>
@@ -188,7 +245,7 @@ export default function HeroSection() {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
               {[
-                { label: "Duration", value: "12 Months", icon: Clock },
+                { label: "Duration", value: "3 Months", icon: Clock },
                 {
                   label: "Eligibility",
                   value: "Graduates & Working Professionals",
@@ -196,12 +253,12 @@ export default function HeroSection() {
                 },
                 {
                   label: "Learning Mode",
-                  value: "Online Live Classes",
+                  value: "Live Classes & Recorded Lectures",
                   icon: Globe,
                 },
                 {
-                  label: "Next Cohort",
-                  value: "Starts 16th May",
+                  label: "Cohort",
+                  value: "Going On!",
                   icon: Calendar,
                 },
               ].map((stat, i) => (

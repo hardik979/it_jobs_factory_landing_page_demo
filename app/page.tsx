@@ -23,15 +23,80 @@ import {
   IconBooks,
   IconCircleCheckFilled,
 } from "@tabler/icons-react";
+import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import Link from "next/link";
 
 export default function Page() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    graduationYear: "",
+    phone: "",
+    education: "",
+  });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!/^\d{10}$/.test(formData.phone)) {
+      toast.error(
+        "Please enter a valid 10-digit phone number without country code."
+      );
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const formBody = new URLSearchParams();
+      // Replace entry IDs below with your actual Google Form entry IDs
+
+      formBody.append("entry.1786796031", formData.name);
+
+      formBody.append("entry.1038515024", formData.phone);
+      formBody.append("entry.1825069237", formData.education);
+
+      await fetch(
+        "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeUhGeU1V3L_g0JdMyAhDE6LAhPq6chASH22JNLFetzayF9Bw/formResponse",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: formBody.toString(),
+        }
+      );
+
+      toast.success("Enquiry Submitted Successfully!");
+    } catch (err) {
+      console.error("Submit error", err);
+      toast.error("Failed to submit");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <>
+      <ToastContainer />
       <Navbar />
       <PopupModal />
+      <a
+        href="https://wa.me/+919425645642?text=Hi%2C%20can%20you%20tell%20me%20more" // Replace with your number
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition-colors duration-300"
+      >
+        <img src="/whatsapp.png" alt="WhatsApp" className="w-8 h-8" />
+      </a>
+
       {/* HERO SECTION */}
       <section
-        className="text-white font-montserrat pt-[120px] min-h-screen py-12 px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-cyan-950"
+        className="text-white   [font-family:var(--font-merriweather)] mt-2 pt-[120px] min-h-screen py-12 px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-cyan-950"
         style={{
           backgroundImage: `
             linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
@@ -43,15 +108,13 @@ export default function Page() {
         <div className="max-w-2xl mx-auto md:mx-0">
           <div className="inline-flex items-center gap-2 px-3 py-3 rounded-md bg-white text-cyan-600 text-md font-medium mb-4 w-fit shadow">
             <IconCalendar size={18} className="text-cyan-600" />
-            <span>
-              Few seats left — Launch your tech career by 16th May, 2025
-            </span>
+            <span>Few seats left — Enroll now to secure your spot!</span>
           </div>
           {/* <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight text-white">
             Build Your Career in Tech with Real Industry Skills
           </h1> */}
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight text-white">
+          <h1 className="text-5xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight text-white">
             <RotatingText
               texts={[
                 "Build Your Career in Tech with Real Industry Skills",
@@ -73,12 +136,12 @@ export default function Page() {
             />
           </h1>
 
-          <div className="flex items-center gap-2 text-sm mb-4 text-white">
+          <div className="flex items-center gap-2 text-md mt-10 mb-4 text-white">
             <IconBuildingBank size={16} className="text-sky-400" />
             <span>Trusted by Hiring Partners like TCS, IBM, and Accenture</span>
           </div>
 
-          <div className="space-y-3 text-sm text-white">
+          <div className="space-y-3 text-md text-white">
             <div className="flex items-start gap-2">
               <IconCircleCheckFilled
                 size={16}
@@ -128,12 +191,17 @@ export default function Page() {
           </div>
 
           <div className="mt-6 flex gap-4 flex-wrap">
-            <button className="bg-cyan-600 text-white hover:bg-cyan-700 px-5 py-2 rounded-md">
-              Explore Track
-            </button>
-            <button className="bg-cyan-950 text-yellow-400 border border-yellow-400 hover:bg-yellow-500 hover:text-cyan-950 px-5 py-2 rounded-md transition">
-              Start Your Career
-            </button>
+            <a href={"/brochure"} target="_blank" rel="noopener noreferrer">
+              <button className="bg-cyan-600 text-white hover:bg-cyan-700 px-5 py-2 rounded-md">
+                Explore Track
+              </button>
+            </a>
+            <Link href={"/bootcamp"}>
+              {" "}
+              <button className="bg-cyan-950 text-yellow-400 border border-yellow-400 hover:bg-yellow-500 hover:text-cyan-950 px-5 py-2 rounded-md transition">
+                Start Your Career
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -141,7 +209,7 @@ export default function Page() {
           {/* Hero Image - Top Half */}
           <div className="h-[55%] flex justify-center items-center">
             <img
-              src="/hero2.png"
+              src="/code.jpg"
               alt="Hero Image"
               className="shadow-2xl w-full h-full object-cover rounded-t-md"
             />
@@ -152,22 +220,49 @@ export default function Page() {
             <h3 className="text-xl font-semibold mb-4 text-center text-white">
               Book Your Free Career Counseling
             </h3>
-            <form className="space-y-3">
+            <form onSubmit={handleSubmit} className="space-y-3">
               <input
                 type="text"
+                name="fullName"
                 placeholder="Full Name"
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
+                required
                 className="w-full px-3 py-2 border border-cyan-700 bg-cyan-800 text-white placeholder-cyan-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400"
               />
               <input
                 type="text"
+                name="education"
                 placeholder="Educational Qualification"
+                value={formData.education}
+                onChange={(e) =>
+                  setFormData({ ...formData, education: e.target.value })
+                }
+                required
                 className="w-full px-3 py-2 border border-cyan-700 bg-cyan-800 text-white placeholder-cyan-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400"
               />
-              <input
-                type="tel"
-                placeholder="Phone Number"
-                className="w-full px-3 py-2 border border-cyan-700 bg-cyan-800 text-white placeholder-cyan-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              />
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <span className="text-cyan-300 font-medium text-sm">+91</span>
+                </div>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="10-digit Phone Number"
+                  value={formData.phone}
+                  onChange={(e) => {
+                    const val = e.target.value.replace(/\D/g, ""); // allow only digits
+                    setFormData({ ...formData, phone: val });
+                  }}
+                  pattern="\d{10}"
+                  maxLength={10}
+                  required
+                  className="w-full pl-12 px-3 py-2 border border-cyan-700 bg-cyan-800 text-white placeholder-cyan-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                />
+              </div>
+
               <button
                 type="submit"
                 className="w-full bg-white text-cyan-900 hover:bg-slate-200 hover:text-cyan-800 py-2 rounded-md font-semibold transition"
@@ -180,7 +275,7 @@ export default function Page() {
       </section>
 
       {/* STATS SECTION */}
-      <section className="bg-cyan-50 text-cyan-900 px-4 sm:px-6 py-20 text-center">
+      <section className="bg-cyan-50  [font-family:var(--font-raleway)] text-cyan-900 px-4 sm:px-6 py-20 text-center">
         <h2 className="text-3xl md:text-4xl font-semibold mb-4">
           <span className="text-sky-600 underline underline-offset-4">
             Job-Ready Placements
@@ -189,9 +284,9 @@ export default function Page() {
         </h2>
 
         <p className="text-cyan-700 max-w-2xl mx-auto mb-10">
-          Join our flagship full stack program curated by IT JOBS FACTORY. Learn
-          from industry experts, build real-world projects, and get guaranteed
-          placement support with top-tier hiring partners.
+          Join our flagship 100% Job-Assistance Bootcamp curated by IT JOBS
+          FACTORY. Learn from industry experts, build real-world projects, and
+          get guaranteed placement support with top-tier hiring partners.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-10">
@@ -210,7 +305,7 @@ export default function Page() {
       </section>
 
       {/* WHY US SECTION */}
-      <section className="bg-cyan-950 text-white py-20 px-4 sm:px-6 text-center">
+      <section className="bg-cyan-950  [font-family:var(--font-raleway)] text-white py-20 px-4 sm:px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-semibold mb-2">
           Powered by{" "}
           <span className="text-sky-400 underline underline-offset-4">
@@ -253,7 +348,7 @@ export default function Page() {
               ],
               [
                 <IconUsersGroup size={40} className="text-white" />,
-                "1-on-1 mentorship from senior engineers",
+                "1-on-1 mentorship from senior software engineers",
               ],
               [
                 <IconBooks size={40} className="text-white" />,
@@ -273,7 +368,7 @@ export default function Page() {
       </section>
 
       {/* CERTIFICATION SECTION */}
-      <section className="bg-cyan-50 text-cyan-900 px-4 sm:px-6 py-20">
+      <section className="bg-cyan-50  [font-family:var(--font-merriweather)] text-cyan-900 px-4 sm:px-6 py-20">
         <div className="max-w-7xl mx-auto text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-semibold">
             Earn Your{" "}
@@ -305,7 +400,7 @@ export default function Page() {
               [
                 <IconSchool size={32} className="text-cyan-600 mt-1" />,
                 "Mentorship from Real Engineers",
-                "Learn directly from engineers working at top firms.",
+                "Learn directly from software engineers working at top firms.",
               ],
               [
                 <IconMapPin size={32} className="text-cyan-600 mt-1" />,
@@ -323,9 +418,13 @@ export default function Page() {
             ))}
 
             <div className="flex flex-wrap gap-4 mt-6">
-              <button className="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-md">
-                Explore Program
-              </button>
+              <Link href={"/bootcamp"}>
+                {" "}
+                <button className="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-md">
+                  Explore Program
+                </button>
+              </Link>
+
               <a href="/brochure" target="_blank" rel="noopener noreferrer">
                 <button className="border border-cyan-600 text-cyan-600 hover:bg-sky-50 px-5 py-2 rounded-md">
                   Download Brochure

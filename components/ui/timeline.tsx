@@ -30,7 +30,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-cyan-950 text-white font-sans md:px-10"
+      className="w-full bg-cyan-950 text-white  [font-family:var(--font-raleway)] md:px-10"
       ref={containerRef}
       style={{
         backgroundImage: `

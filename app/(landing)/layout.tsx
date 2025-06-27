@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 
 const Landinglayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
+    <div className=" [font-family:var(--font-raleway)]">
       <Navbar />
       {children}
 

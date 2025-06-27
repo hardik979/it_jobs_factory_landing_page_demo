@@ -180,7 +180,7 @@ export default function JobCurriculumSection() {
   const activeSql = sqlCurriculum.find((item) => item.id === selectedSql);
 
   return (
-    <section className="bg-cyan-50 text-cyan-900 py-20 px-6">
+    <section className="bg-cyan-50  [font-family:var(--font-raleway)] text-cyan-900 py-20 px-6">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold mb-2">
           Curriculum and{" "}
@@ -274,7 +274,7 @@ export default function JobCurriculumSection() {
           )}
         </div>
       ) : (
-        <div className="max-w-4xl mx-auto mt-10">
+        <div className="max-w-4xl font-bold mx-auto mt-10">
           <ul className="list-disc list-inside space-y-3 text-base text-cyan-800">
             {linuxCurriculum[0].topics.map((topic, idx) => (
               <li key={idx}>{topic}</li>

@@ -12,9 +12,6 @@ export default function PopupModal() {
     graduationYear: "",
     phone: "",
     education: "",
-    college: "",
-    city: "",
-    program: "",
   });
 
   useEffect(() => {
@@ -24,9 +21,7 @@ export default function PopupModal() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -35,34 +30,38 @@ export default function PopupModal() {
 
   const validateInputs = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
     if (!emailRegex.test(formData.email)) {
       toast.error("Please enter a valid email.");
       return false;
     }
-
     return true;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateInputs()) return;
-
     setIsSubmitting(true);
-
     try {
-      const res = await fetch("/api/demo", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const formBody = new URLSearchParams();
+      // Replace entry IDs below with your actual Google Form entry IDs
+      formBody.append("entry.100053772", formData.email);
+      formBody.append("entry.1786796031", formData.name);
+      formBody.append("entry.2086034414", formData.graduationYear);
+      formBody.append("entry.1038515024", formData.phone);
+      formBody.append("entry.1825069237", formData.education);
 
-      if (res.ok) {
-        toast.success("Session booked successfully!");
-        setTimeout(() => setShow(false), 2000);
-      } else {
-        toast.error("Something went wrong. Try again.");
-      }
+      await fetch(
+        "https://docs.google.com/forms/u/0/d/e/1FAIpQLSeUhGeU1V3L_g0JdMyAhDE6LAhPq6chASH22JNLFetzayF9Bw/formResponse",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: formBody.toString(),
+        }
+      );
+
+      toast.success("Session booked successfully!");
+      setTimeout(() => setShow(false), 2000);
     } catch (err) {
       console.error("Submit error", err);
       toast.error("Failed to submit");
@@ -76,10 +75,10 @@ export default function PopupModal() {
   return (
     <>
       <ToastContainer />
-      <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-        <div className="bg-white text-black max-w-6xl w-full h-[700px] rounded-xl overflow-hidden shadow-lg flex flex-col md:flex-row relative">
+      <div className="fixed inset-0 bg-black/50 backdrop-blur-sm [font-family:var(--font-raleway)] flex items-center justify-center z-50 p-2 sm:p-4">
+        <div className="bg-white text-black w-full max-w-3xl max-h-[95vh] rounded-xl overflow-hidden shadow-lg flex flex-col md:flex-row relative">
           {/* Left Image */}
-          <div className="md:w-1/2 h-64 md:h-full">
+          <div className="w-full md:w-1/2 h-48 sm:h-64 md:h-auto flex-shrink-0">
             <img
               src="/code.jpg"
               alt="Internship Promo"
@@ -88,24 +87,22 @@ export default function PopupModal() {
           </div>
 
           {/* Right Form */}
-          <div className="p-8 md:w-1/2 flex flex-col justify-center h-full relative overflow-y-auto">
-            {/* Close Button */}
+          <div className="p-4 sm:p-6 md:p-8 w-full md:w-1/2 flex flex-col justify-center relative overflow-y-auto">
             <button
               onClick={() => setShow(false)}
-              className="absolute top-4 right-4 z-10 text-xl font-bold text-gray-500 hover:text-red-500"
+              className="absolute top-2 right-2 z-10 text-xl font-bold text-gray-500 hover:text-red-500 md:top-4 md:right-4"
             >
               &times;
             </button>
 
-            <h3 className="text-4xl font-bold mb-2 text-cyan-800">
-              Book a Live Demo Session
+            <h3 className="text-2xl sm:text-3xl font-bold mb-2 text-cyan-800">
+              Book a Free Session Now!
             </h3>
-            <p className="text-sm text-gray-600 mb-4">
+            <p className="text-xs sm:text-sm text-gray-600 mb-4">
               Get career advice, training overview, and certificate guidance.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Email Full Width */}
               <input
                 name="email"
                 type="email"
@@ -115,8 +112,8 @@ export default function PopupModal() {
                 required
                 className="w-full border px-4 py-2 rounded text-sm"
               />
-              {/* Full Name + Grad Year */}
-              <div className="flex gap-4">
+
+              <div className="flex flex-col sm:flex-row gap-4">
                 <input
                   name="name"
                   type="text"
@@ -124,7 +121,7 @@ export default function PopupModal() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-1/2 border px-4 py-2 rounded text-sm"
+                  className="w-full sm:w-1/2 border px-4 py-2 rounded text-sm"
                 />
                 <input
                   name="graduationYear"
@@ -133,45 +130,20 @@ export default function PopupModal() {
                   value={formData.graduationYear}
                   onChange={handleChange}
                   required
-                  className="w-1/2 border px-4 py-2 rounded text-sm"
+                  className="w-full sm:w-1/2 border px-4 py-2 rounded text-sm"
                 />
               </div>
 
-              {/* Job Title + Program */}
-              <div className="flex gap-4">
-                <select
-                  name="education"
-                  value={formData.education}
-                  onChange={handleChange}
-                  required
-                  className="w-1/2 border px-4 py-2 rounded text-sm bg-white"
-                >
-                  <option value="">Job Title</option>
-                  <option value="B.Tech CSE">B.Tech CSE</option>
-                  <option value="BSc CS">BSc CS</option>
-                  <option value="Diploma CS">Diploma CS</option>
-                  <option value="Working Professional">
-                    Working Professional
-                  </option>
-                </select>
+              <input
+                name="education"
+                type="text"
+                placeholder="Educational Qualification"
+                value={formData.education}
+                onChange={handleChange}
+                required
+                className="w-full border px-4 py-2 rounded text-sm"
+              />
 
-                <select
-                  name="program"
-                  value={formData.program}
-                  onChange={handleChange}
-                  required
-                  className="w-1/2 border px-4 py-2 rounded text-sm bg-white"
-                >
-                  <option value="">Select Program</option>
-                  <option value="Full Stack Internship">
-                    Full Stack Internship
-                  </option>
-                  <option value="Data Science">Data Science</option>
-                  <option value="DevOps + Cloud">DevOps + Cloud</option>
-                  <option value="Frontend Bootcamp">Frontend Bootcamp</option>
-                </select>
-              </div>
-              {/* Phone Number */}
               <input
                 name="phone"
                 type="tel"
@@ -181,7 +153,7 @@ export default function PopupModal() {
                 required
                 className="w-full border px-4 py-2 rounded text-sm"
               />
-              {/* Submit Button */}
+
               <button
                 type="submit"
                 disabled={isSubmitting}

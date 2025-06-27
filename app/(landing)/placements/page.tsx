@@ -7,7 +7,7 @@ import { AlmaXTimeline } from "@/components/ui/TimelineDemo";
 export default function PlacementsSection() {
   return (
     <>
-      <section className="bg-cyan-950 text-white  px-6 py-20 min-h-screen pt-[160px]">
+      <section className="bg-cyan-950 text-white mt-12  px-6 py-20 min-h-screen pt-[160px]">
         <div className="max-w-6xl mx-auto text-center">
           {/* Heading */}
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -50,7 +50,7 @@ export default function PlacementsSection() {
 
           {/* CTA */}
           <a
-            href="/success-stories"
+            href="/bootcamp"
             className="inline-block bg-sky-500 hover:bg-sky-600 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300"
           >
             Join now!

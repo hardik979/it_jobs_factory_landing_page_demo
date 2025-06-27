@@ -64,10 +64,6 @@ export default function AboutSection() {
             </div>
           ))}
         </div>
-
-        <button className="bg-cyan-600 text-white px-6 py-3 rounded-md text-sm font-medium hover:bg-cyan-700 transition">
-          Download Career Report
-        </button>
       </section>
       <FAQAccordion />
       <SuccessCarousel />

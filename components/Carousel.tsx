@@ -77,7 +77,7 @@ export default function SuccessCarousel() {
   };
 
   return (
-    <section className="bg-cyan-50 text-cyan-900 px-6 py-20">
+    <section className="bg-cyan-50  [font-family:var(--font-raleway)] text-cyan-900 px-6 py-20">
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-semibold">
           Success{" "}

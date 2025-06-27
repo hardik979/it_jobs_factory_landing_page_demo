@@ -9,98 +9,158 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-cyan-950 text-cyan-100 px-6 py-12">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-10">
-        {/* Contact + Social */}
-        <div className="space-y-4 col-span-2">
-          <h2 className="text-xl text-white font-bold">
-            <span className="text-yellow-400">IT</span>{" "}
-            <span className="underline">JOBS FACTORY</span>
-          </h2>
-          <div>
-            <h4 className="text-sm font-semibold text-white">Contact Us</h4>
-            <p className="text-sm text-cyan-300">Contact@itjobsfactory.com</p>
-            <p className="text-sm text-cyan-300">+919993244018</p>
-          </div>
-          <div>
-            <h4 className="text-sm font-semibold text-white">
-              Official Address
-            </h4>
-            <p className="text-sm text-cyan-300">
-              IT Jobs Factory, Shri Krishna Tower, Near Noble College, Makronia,
-              Sagar, Madhya Pradesh 470004
-            </p>
-          </div>
-          <div>
-            <h4 className="text-sm font-semibold text-white">Follow Us</h4>
-            <div className="flex gap-3 mt-2 text-cyan-300">
-              <IconBrandFacebook size={20} />
-              <IconBrandInstagram size={20} />
-              <IconBrandLinkedin size={20} />
-              <IconBrandTwitter size={20} />
-              <IconBrandTelegram size={20} />
+    <footer className="bg-cyan-950 [font-family:var(--font-raleway)] text-cyan-100 px-4 sm:px-6 py-8 sm:py-12 break-words">
+      <div className="max-w-7xl mx-auto">
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-10">
+          {/* Contact + Social - Takes full width on mobile, 2 cols on large screens */}
+          <div className="space-y-4 sm:space-y-6 col-span-1 sm:col-span-2 lg:col-span-2">
+            <h2 className="text-lg sm:text-xl text-white font-bold">
+              <span className="text-yellow-400">IT</span>{" "}
+              <span className="underline">JOBS FACTORY</span>
+            </h2>
+
+            {/* Contact Info */}
+            <div className="space-y-3">
+              <div>
+                <h4 className="text-sm font-semibold text-white mb-1">
+                  Contact Us
+                </h4>
+                <p className="text-sm text-cyan-300 break-all sm:break-normal">
+                  Contact@itjobsfactory.com
+                </p>
+                <p className="text-sm text-cyan-300">+91 9993244018</p>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-semibold text-white mb-1">
+                  Official Address
+                </h4>
+                <p className="text-sm text-cyan-300 leading-relaxed">
+                  IT Jobs Factory, Shri Krishna Tower, Near Noble College,
+                  Makronia, Sagar, Madhya Pradesh 470004
+                </p>
+              </div>
+            </div>
+
+            {/* Social Media */}
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-2">
+                Follow Us
+              </h4>
+              <div className="flex gap-3 text-cyan-300">
+                <IconBrandFacebook
+                  size={20}
+                  className="hover:text-white cursor-pointer transition-colors"
+                />
+                <IconBrandInstagram
+                  size={20}
+                  className="hover:text-white cursor-pointer transition-colors"
+                />
+                <IconBrandLinkedin
+                  size={20}
+                  className="hover:text-white cursor-pointer transition-colors"
+                />
+                <IconBrandTwitter
+                  size={20}
+                  className="hover:text-white cursor-pointer transition-colors"
+                />
+                <IconBrandTelegram
+                  size={20}
+                  className="hover:text-white cursor-pointer transition-colors"
+                />
+              </div>
+            </div>
+
+            {/* Policies */}
+            <div>
+              <h4 className="text-sm font-semibold text-white mb-2">
+                Policies
+              </h4>
+              <ul className="space-y-1 text-sm text-cyan-400">
+                <li className="hover:text-cyan-300 cursor-pointer transition-colors">
+                  Privacy Statement
+                </li>
+                <li className="hover:text-cyan-300 cursor-pointer transition-colors">
+                  Terms of Use
+                </li>
+              </ul>
             </div>
           </div>
-          <div className="text-sm mt-4">
-            <h4 className="font-semibold text-white">Policies</h4>
-            <ul className="space-y-1 mt-1 text-cyan-400">
-              <li>Privacy Statement</li>
-              <li>Terms of Use</li>
+
+          {/* Learn More */}
+          <div className="col-span-1">
+            <h4 className="text-sm font-semibold mb-3 text-white">
+              Learn More
+            </h4>
+            <ul className="text-sm space-y-2 text-cyan-400">
+              <Link
+                href="/about"
+                className="block hover:text-cyan-300 transition-colors"
+              >
+                <li>Success Stories</li>
+              </Link>
+              <Link
+                href="/hire"
+                className="block hover:text-cyan-300 transition-colors"
+              >
+                <li>Hire From Us</li>
+              </Link>
+              <Link
+                href="/placements"
+                className="block hover:text-cyan-300 transition-colors"
+              >
+                <li>Careers</li>
+              </Link>
+            </ul>
+          </div>
+
+          {/* Why Choose Us */}
+          <div className="col-span-1">
+            <h4 className="text-sm font-semibold mb-3 text-white">
+              Why Choose Us
+            </h4>
+            <ul className="text-sm space-y-2 text-cyan-400">
+              <li className="leading-relaxed">
+                100% Job Assistance with Interview Prep
+              </li>
+              <li className="leading-relaxed">
+                Live Projects & Real-World Scenarios
+              </li>
+              <li className="leading-relaxed">
+                Mentorship from Industry Experts
+              </li>
+              <li className="leading-relaxed">
+                Access to Hiring Partner Network
+              </li>
+            </ul>
+          </div>
+
+          {/* Our Commitment */}
+          <div className="col-span-1">
+            <h4 className="text-sm font-semibold mb-3 text-white">
+              Our Commitment
+            </h4>
+            <ul className="text-sm space-y-2 text-cyan-400">
+              <li className="leading-relaxed">
+                Career Counseling & Resume Reviews
+              </li>
+              <li className="leading-relaxed">100% Job Placements</li>
+              <li className="leading-relaxed">
+                Support for Freshers & Working Pros
+              </li>
+              <li className="leading-relaxed">Results-Driven Career Tracks</li>
             </ul>
           </div>
         </div>
 
-        {/* Company */}
-        <div>
-          <h4 className="text-sm font-semibold mb-3 text-white">Learn More</h4>
-          <ul className="text-sm space-y-2 text-cyan-400">
-            <Link href={"/about"}>
-              <li>Success Stories</li>
-            </Link>
-
-            <Link href={"/hire"}>
-              <li>Hire From Us</li>
-            </Link>
-            <Link href={"/placements"}>
-              {" "}
-              <li>Careers</li>
-            </Link>
-          </ul>
+        {/* Bottom Line */}
+        <div className="mt-8 sm:mt-12 border-t border-cyan-800 pt-4 text-sm text-cyan-500 text-center">
+          <p>
+            Made with <span className="text-red-500">❤️</span> in India
+          </p>
+          <p className="mt-1">© 2025 IT JOB FACTORY</p>
         </div>
-
-        {/* Value Proposition 1 */}
-        <div>
-          <h4 className="text-sm font-semibold mb-3 text-white">
-            Why Choose Us
-          </h4>
-          <ul className="text-sm space-y-2 text-cyan-400">
-            <li>100% Job Assistance with Interview Prep</li>
-            <li>Live Projects & Real-World Scenarios</li>
-            <li>Mentorship from Industry Experts</li>
-            <li>Access to Hiring Partner Network</li>
-          </ul>
-        </div>
-
-        {/* Value Proposition 2 */}
-        <div>
-          <h4 className="text-sm font-semibold mb-3 text-white">
-            Our Commitment
-          </h4>
-          <ul className="text-sm space-y-2 text-cyan-400">
-            <li>Career Counseling & Resume Reviews</li>
-            <li>Guaranteed Job Placements</li>
-            <li>Support for Freshers & Working Pros</li>
-            <li>Results-Driven Career Tracks</li>
-          </ul>
-        </div>
-      </div>
-
-      {/* Bottom Line */}
-      <div className="mt-12 border-t border-cyan-800 pt-4 text-sm text-cyan-500 text-center">
-        <p>
-          Made with <span className="text-red-500">❤️</span> in India
-        </p>
-        <p className="mt-1">© 2025 IT JOB FACTORY</p>
       </div>
     </footer>
   );

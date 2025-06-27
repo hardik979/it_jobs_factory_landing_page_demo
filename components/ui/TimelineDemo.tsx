@@ -206,7 +206,7 @@ export function AlmaXTimeline() {
   ];
 
   return (
-    <div className="relative w-full overflow-clip bg-cyan-950 text-white py-24 px-6">
+    <div className="relative w-full overflow-clip   bg-cyan-950 text-white py-24 px-6">
       <Timeline data={data} />
     </div>
   );

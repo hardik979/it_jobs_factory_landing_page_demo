@@ -61,7 +61,7 @@ export default function FAQAccordion() {
 
   return (
     <section
-      className="py-16 px-4 sm:px-6 text-white bg-cyan-950"
+      className="py-16 px-4 sm:px-6 text-white  [font-family:var(--font-raleway)] bg-cyan-950"
       style={{
         backgroundImage: `
           linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
