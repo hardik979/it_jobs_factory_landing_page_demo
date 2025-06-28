@@ -6,6 +6,7 @@ import {
   IconArchive,
   IconHelpCircle,
 } from "@tabler/icons-react";
+import Link from "next/link";
 
 export default function FlexibilitySection() {
   const faqs = [
@@ -60,12 +61,11 @@ export default function FlexibilitySection() {
 
       {/* Buttons */}
       <div className="flex flex-wrap justify-center gap-4 mt-10">
-        <button className="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-md text-sm">
-          Download Brochure
-        </button>
-        <button className="border border-cyan-600 text-cyan-600 px-5 py-2 rounded-md text-sm hover:bg-cyan-100">
-          Download Placement Report
-        </button>
+        <a href="/brochure" target="_blank" rel="noopener noreferrer">
+          <button className="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-md text-sm">
+            Download Brochure
+          </button>
+        </a>
       </div>
     </section>
   );

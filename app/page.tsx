@@ -90,185 +90,184 @@ export default function Page() {
       </a>
 
       {/* HERO SECTION */}
+      {/* HERO SECTION */}
       <section
-        className="text-white   mt-2 pt-[120px] min-h-screen py-12 px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-cyan-950"
+        className="text-white mt-12 sm:mt-12 pt-12 sm:pt-12 md:pt-16 min-h-screen py-8 px-4 sm:px-6 flex items-center bg-cyan-950"
         style={{
           backgroundImage: `
-            linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
-          `,
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
+    `,
           backgroundSize: "40px 40px",
         }}
       >
-        <div className="max-w-2xl mx-auto md:mx-0">
-          <div className="inline-flex items-center gap-2 px-3 py-3 rounded-md bg-white text-cyan-600 text-md font-medium mb-4 w-fit shadow">
-            <IconCalendar size={18} className="text-cyan-600" />
-            <span>Few seats left — Enroll now to secure your spot!</span>
-          </div>
-          {/* <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight text-white">
-            Build Your Career in Tech with Real Industry Skills
-          </h1> */}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+          <div className="max-w-2xl mx-auto lg:mx-0 order-2 lg:order-1">
+            <div className="inline-flex items-center gap-2 px-3 py-2 rounded-md bg-white text-cyan-600 text-sm font-medium mb-4 w-fit shadow">
+              <IconCalendar size={16} className="text-cyan-600" />
+              <span>Few seats left — Enroll now to secure your spot!</span>
+            </div>
 
-          <h1 className="text-5xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight  ">
-            <RotatingText
-              texts={[
-                "Build Your Career in Tech with Real Industry Skills",
-                "Kickstart Your Career in the IT Industry",
-                "Get Ready for a Future-Proof Career in Tech",
-              ]}
-              mainClassName="inline-block text-sky-400 whitespace-nowrap text-center"
-              staggerFrom="first"
-              initial={{ y: "100%", opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: "-100%", opacity: 0 }}
-              staggerDuration={0.03}
-              splitLevelClassName="overflow-hidden"
-              elementLevelClassName="inline-block"
-              transition={{ type: "spring", damping: 30, stiffness: 400 }}
-              rotationInterval={5000}
-              auto
-              loop
-            />
-          </h1>
-
-          <div className="flex items-center gap-2 text-md mt-10 mb-4 text-white">
-            <IconBuildingBank size={16} className="text-sky-400" />
-            <span>Trusted by Hiring Partners like TCS, IBM, and Accenture</span>
-          </div>
-
-          <div className="space-y-4 text-md text-white word-spacing">
-            <div className="flex items-start gap-2">
-              <IconCircleCheckFilled
-                size={16}
-                className="text-green-400 mt-0.5"
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 leading-tight">
+              <RotatingText
+                texts={[
+                  "Build Your Career in Tech with Real Industry Skills",
+                  "Kickstart Your Career in the IT Industry",
+                  "Get Ready for a Future-Proof Career in Tech",
+                ]}
+                mainClassName="inline-block text-sky-400 whitespace-nowrap text-center"
+                staggerFrom="first"
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: "-100%", opacity: 0 }}
+                staggerDuration={0.03}
+                splitLevelClassName="overflow-hidden"
+                elementLevelClassName="inline-block"
+                transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                rotationInterval={5000}
+                auto
+                loop
               />
+            </h1>
+
+            <div className="flex items-center gap-2 text-sm mt-6 mb-4 text-white">
+              <IconBuildingBank size={16} className="text-sky-400" />
               <span>
-                Join our 3-Month Job Bootcamp — master monitoring & incident
-                response
-                <br /> with Grafana, Splunk, and more.
+                Trusted by Hiring Partners like TCS, IBM, and Accenture
               </span>
             </div>
-            <div className="flex items-start gap-2">
-              <IconCircleCheckFilled
-                size={16}
-                className="text-green-400 mt-0.5"
-              />
-              <span>
-                Work on Industry grade Monitoring and Observability tools.
-              </span>
-            </div>
-            <div className="flex items-start gap-2">
-              <IconCircleCheckFilled
-                size={16}
-                className="text-green-400 mt-0.5"
-              />
-              <span>
-                Built for Graduates, Job-Switchers & Early Professionals.
-              </span>
-            </div>
-            <div className="flex items-start gap-2">
-              <IconCircleCheckFilled
-                size={16}
-                className="text-green-400 mt-0.5"
-              />
-              <span>
-                AI-integrated curriculum with hands-on weekly Quizes and
-                Assignments.
-              </span>
-            </div>
-            <div className="flex items-start gap-2">
-              <IconCircleCheckFilled
-                size={16}
-                className="text-green-400 mt-0.5"
-              />
-              <span>100% Job Placement Assistance with Interview Prep.</span>
-            </div>
-          </div>
 
-          <div className="mt-6 flex gap-4 flex-wrap">
-            <a href={"/brochure"} target="_blank" rel="noopener noreferrer">
-              <button className="bg-cyan-600 text-white hover:bg-cyan-700 px-5 py-2 rounded-md">
-                Explore Track
-              </button>
-            </a>
-            <Link href={"/bootcamp"}>
-              {" "}
-              <button className="bg-cyan-950 text-yellow-400 border border-yellow-400 hover:bg-yellow-500 hover:text-cyan-950 px-5 py-2 rounded-md transition">
-                Start Your Career
-              </button>
-            </Link>
-          </div>
-        </div>
-
-        <div className="w-full flex flex-col justify-between pt-12 h-full">
-          {/* Hero Image - Top Half */}
-          <div className="h-[55%] flex justify-center items-center">
-            <img
-              src="/code3.png"
-              alt="Hero Image"
-              className="shadow-2xl w-full h-full object-cover rounded-t-md"
-            />
-          </div>
-
-          {/* Form - Bottom Half */}
-          <div className="md:h-[45%] bg-gradient-to-br from-slate-900 via-cyan-900 to-slate-900  p-6 rounded-b-md shadow-xl text-white">
-            <h3 className="text-xl font-semibold mb-4 text-center text-white">
-              Book Your Free Career Counseling
-            </h3>
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <input
-                type="text"
-                name="fullName"
-                placeholder="Full Name"
-                value={formData.name}
-                onChange={(e) =>
-                  setFormData({ ...formData, name: e.target.value })
-                }
-                required
-                className="w-full px-3 py-2 border border-cyan-700 bg-cyan-800 text-white placeholder-cyan-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              />
-              <input
-                type="text"
-                name="education"
-                placeholder="Educational Qualification"
-                value={formData.education}
-                onChange={(e) =>
-                  setFormData({ ...formData, education: e.target.value })
-                }
-                required
-                className="w-full px-3 py-2 border border-cyan-700 bg-cyan-800 text-white placeholder-cyan-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              />
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                  <span className="text-cyan-300 font-medium text-sm">+91</span>
-                </div>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="10-digit Phone Number"
-                  value={formData.phone}
-                  onChange={(e) => {
-                    const val = e.target.value.replace(/\D/g, ""); // allow only digits
-                    setFormData({ ...formData, phone: val });
-                  }}
-                  pattern="\d{10}"
-                  maxLength={10}
-                  required
-                  className="w-full pl-12 px-3 py-2 border border-cyan-700 bg-cyan-800 text-white placeholder-cyan-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            <div className="space-y-3 text-sm text-white word-spacing">
+              <div className="flex items-start gap-2">
+                <IconCircleCheckFilled
+                  size={16}
+                  className="text-green-400 mt-0.5"
                 />
+                <span>
+                  Join our 3-Month Job Bootcamp — master monitoring & incident
+                  response with Grafana, Splunk, and more.
+                </span>
               </div>
+              <div className="flex items-start gap-2">
+                <IconCircleCheckFilled
+                  size={16}
+                  className="text-green-400 mt-0.5"
+                />
+                <span>
+                  Work on Industry grade Monitoring and Observability tools.
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <IconCircleCheckFilled
+                  size={16}
+                  className="text-green-400 mt-0.5"
+                />
+                <span>
+                  Built for Graduates, Job-Switchers & Early Professionals.
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <IconCircleCheckFilled
+                  size={16}
+                  className="text-green-400 mt-0.5"
+                />
+                <span>
+                  AI-integrated curriculum with hands-on weekly Quizes and
+                  Assignments.
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <IconCircleCheckFilled
+                  size={16}
+                  className="text-green-400 mt-0.5"
+                />
+                <span>100% Job Placement Assistance with Interview Prep.</span>
+              </div>
+            </div>
 
-              <button
-                type="submit"
-                className="w-full bg-white text-cyan-900 hover:bg-slate-200 hover:text-cyan-800 py-2 rounded-md font-semibold transition"
-              >
-                Submit
-              </button>
-            </form>
+            <div className="mt-6 flex gap-4 flex-wrap">
+              <a href={"/brochure"} target="_blank" rel="noopener noreferrer">
+                <button className="bg-cyan-600 text-white hover:bg-cyan-700 px-5 py-2 rounded-md text-sm">
+                  Explore Track
+                </button>
+              </a>
+              <Link href={"/bootcamp"}>
+                <button className="bg-cyan-950 text-yellow-400 border border-yellow-400 hover:bg-yellow-500 hover:text-cyan-950 px-5 py-2 rounded-md transition text-sm">
+                  Start Your Career
+                </button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Combined Image and Form */}
+          <div className="rounded-xl overflow-hidden shadow-2xl bg-gradient-to-br from-slate-900 via-cyan-900 to-slate-900 order-2 lg:order-2">
+            <div className="h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 overflow-hidden">
+              <img
+                src="/code3.png"
+                alt="Hero Image"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+            <div className="p-4 sm:p-6 text-white">
+              <h3 className="text-lg sm:text-xl font-semibold mb-4 text-center text-white">
+                Book Your Free Career Counseling
+              </h3>
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <input
+                  type="text"
+                  name="fullName"
+                  placeholder="Full Name"
+                  value={formData.name}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
+                  required
+                  className="w-full px-3 py-2 border border-cyan-700 bg-cyan-800 text-white placeholder-cyan-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 text-sm"
+                />
+                <input
+                  type="text"
+                  name="education"
+                  placeholder="Educational Qualification"
+                  value={formData.education}
+                  onChange={(e) =>
+                    setFormData({ ...formData, education: e.target.value })
+                  }
+                  required
+                  className="w-full px-3 py-2 border border-cyan-700 bg-cyan-800 text-white placeholder-cyan-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 text-sm"
+                />
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <span className="text-cyan-300 font-medium text-sm">
+                      +91
+                    </span>
+                  </div>
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="10-digit Phone Number"
+                    value={formData.phone}
+                    onChange={(e) => {
+                      const val = e.target.value.replace(/\D/g, ""); // allow only digits
+                      setFormData({ ...formData, phone: val });
+                    }}
+                    pattern="\d{10}"
+                    maxLength={10}
+                    required
+                    className="w-full pl-12 px-3 py-2 border border-cyan-700 bg-cyan-800 text-white placeholder-cyan-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 text-sm"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-white text-cyan-900 hover:bg-slate-200 hover:text-cyan-800 py-2 rounded-md font-semibold transition text-sm"
+                >
+                  Submit
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </section>
-
       {/* STATS SECTION */}
       <section className="bg-cyan-50  [font-family:var(--font-raleway)] text-cyan-900 px-4 sm:px-6 py-20 text-center">
         <h2 className="text-3xl md:text-4xl font-semibold mb-4">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import {
   IconMenu2,
   IconX,
@@ -73,12 +73,12 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 bg-black   text-cyan-800 px-6 py-4 shadow-md">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-black text-cyan-800 px-6 py-3 shadow-md">
         <div className="flex items-center justify-between">
           {/* Logo + Dropdown */}
-          <div className="flex items-center  gap-4">
+          <div className="flex items-center gap-4">
             <Link href="/">
-              <div className="relative rounded-2xl w-10 h-10">
+              <div className="relative rounded-2xl w-8 h-8">
                 <Image
                   src="/logo.png"
                   alt="Logo"
@@ -88,7 +88,7 @@ export default function Navbar() {
               </div>
             </Link>
             <Link href="/">
-              <span className="text-4xl [font-family:var(--font-righteous)]  text-yellow-300 font-bold">
+              <span className="text-2xl sm:text-3xl [font-family:var(--font-righteous)] text-yellow-300 font-bold">
                 IT{" "}
                 <span className="text-sky-300 word-spacing underline-offset-4">
                   Jobs Factory
@@ -101,23 +101,30 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex gap-6 text-md items-center">
+
+          <div className="hidden md:flex gap-6 text-sm items-center">
+            <Link href="/about" className="hover:underline text-white">
+              Our Story
+            </Link>
             <Link href="/placements" className="hover:underline text-white">
               Placements
             </Link>
             <Link href="/hire" className="hover:underline text-white">
               Hire Talent
             </Link>
-            <Link href="/about" className="hover:underline text-white">
-              Our Story
+            <Link href={"/fees"} className="hover:underline text-white">
+              Fees
             </Link>
-            <button className="hover:underline text-white">Contact Us</button>
+
+            <a href="#contact" className="hover:underline text-white">
+              Contact Us
+            </a>
           </div>
 
           {/* Hamburger (Mobile) */}
           <div className="md:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="text-white">
-              {isOpen ? <IconX size={28} /> : <IconMenu2 size={28} />}
+              {isOpen ? <IconX size={24} /> : <IconMenu2 size={24} />}
             </button>
           </div>
         </div>
@@ -221,11 +228,11 @@ export default function Navbar() {
                       custom={1}
                     >
                       <Link
-                        href="/placements"
+                        href="/about"
                         className="block p-3 rounded-lg text-white hover:bg-gray-800 transition-colors"
                         onClick={() => setIsOpen(false)}
                       >
-                        Placements
+                        Our Story
                       </Link>
                     </motion.div>
                     <motion.div
@@ -235,11 +242,11 @@ export default function Navbar() {
                       custom={2}
                     >
                       <Link
-                        href="/masterClass"
+                        href="/placements"
                         className="block p-3 rounded-lg text-white hover:bg-gray-800 transition-colors"
                         onClick={() => setIsOpen(false)}
                       >
-                        Masterclass
+                        placements
                       </Link>
                     </motion.div>
                     <motion.div
@@ -249,41 +256,39 @@ export default function Navbar() {
                       custom={3}
                     >
                       <Link
-                        href="/practice"
+                        href="/hire"
                         className="block p-3 rounded-lg text-white hover:bg-gray-800 transition-colors"
                         onClick={() => setIsOpen(false)}
                       >
-                        Practice
+                        Hire Talent
                       </Link>
+                      <Link
+                        href="/fees"
+                        className="block p-3 rounded-lg text-white hover:bg-gray-800 transition-colors"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Fees
+                      </Link>
+                      <a
+                        href="#contact"
+                        className="block p-3 rounded-lg text-white hover:bg-gray-800 transition-colors"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        Contact Us
+                      </a>
                     </motion.div>
                     <motion.div
                       variants={menuItemVariants}
                       initial="closed"
                       animate="open"
                       custom={4}
-                    >
-                      <Link
-                        href="/hire"
-                        className="block p-3 rounded-lg text-white hover:bg-gray-800 transition-colors"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        Hire From Us
-                      </Link>
-                    </motion.div>
+                    ></motion.div>
                     <motion.div
                       variants={menuItemVariants}
                       initial="closed"
                       animate="open"
                       custom={5}
-                    >
-                      <Link
-                        href="/about"
-                        className="block p-3 rounded-lg text-white hover:bg-gray-800 transition-colors"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        About Us
-                      </Link>
-                    </motion.div>
+                    ></motion.div>
                   </div>
                 </div>
               </div>
@@ -292,22 +297,22 @@ export default function Navbar() {
         )}
       </AnimatePresence>
 
-      {/* Fixed Cyan Banner */}
+      {/* Fixed Cyan Banner - Reduced Height */}
       <motion.div
-        className="fixed top-[64px] z-40 w-full bg-gradient-to-r from-sky-500 to-cyan-400 text-white  [font-family:var(--font-raleway)]  px-4 py-3 shadow-md"
+        className="fixed top-[60px] z-40 w-full bg-white text-cyan-950 [font-family:var(--font-raleway)] px-4 py-2 shadow-md"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 text-center sm:text-left">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 text-center sm:text-left">
           <div className="flex items-center justify-center sm:justify-start gap-2">
-            <PinIcon size={16} className="text-white flex-shrink-0" />
-            <span className="text-sm sm:text-base font-semibold tracking-wide uppercase">
+            <PinIcon size={14} className="text-cyan-950 flex-shrink-0" />
+            <span className="text-xs sm:text-sm font-semibold tracking-wide uppercase">
               Launch your Career in Tech Industry
             </span>
           </div>
           <div className="flex-shrink-0 order-3 sm:order-2">
-            <span className="text-sm sm:text-base font-semibold text-white tracking-wide">
+            <span className="text-xs sm:text-sm font-semibold text-cyan-950 tracking-wide">
               Limited Seats{" "}
               <span className="underline underline-offset-2 font-bold whitespace-nowrap">
                 Join Now
@@ -321,7 +326,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
             >
               <motion.button
-                className="bg-white text-cyan-800 px-4 py-2 rounded-md text-sm font-semibold hover:bg-white/90 shadow-md whitespace-nowrap"
+                className="bg-cyan-950 text-white px-3 py-1.5 rounded-md text-xs font-semibold hover:bg-cyan-800 shadow-md whitespace-nowrap"
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{
                   repeat: Infinity,

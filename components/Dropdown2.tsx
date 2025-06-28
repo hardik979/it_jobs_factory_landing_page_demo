@@ -18,7 +18,7 @@ const sections = {
     icon: <GraduationCap size={18} className="text-cyan-700" />,
     tagline: " For graduates seeking placements",
     points: [
-      "• Production Support - Monitoring tools",
+      "• Monitoring Tools",
       "• Hands-on Practice",
       "• Mock Interviews",
       "• Unlimited Interview Access",
@@ -31,21 +31,21 @@ const sections = {
     icon: <BarChart size={18} className="text-cyan-700" />,
     tagline: " For college students, graduates & working professionals",
     points: [
-      "• Industry-Endorsed Curriculum",
+      "• Industry-Endorsed",
       "• Real-World Projects",
       "• 100% Job Support",
       "• Interview Preparation",
     ],
   },
-  "Dev Ops": {
+  DevOps: {
     title: "DevOps & Cloud",
     href: "/devops",
     desc: "Master CI/CD, Docker, Kubernetes, AWS, and real-world automation skills.",
     icon: <ServerCog size={18} className="text-cyan-700" />,
     tagline: " For IT professionals, sysadmins & aspiring cloud engineers",
     points: [
-      "• Comprehensive DevOps Tools & Techniques",
-      "• Hands-on Cloud Deployments",
+      "• Comprehensive Techniques",
+      "• Cloud Deployments",
       "• Career-Focused Curriculum",
       "• Personalized Mentorship",
     ],
@@ -57,7 +57,7 @@ const sections = {
     icon: <Code2 size={18} className="text-cyan-700" />,
     tagline: " For beginners, graduates & career switchers",
     points: [
-      "• End-to-End Full Stack Projects",
+      "• Full Stack Projects",
       "• Industry-Ready Skills",
       "• Expert-Led Training",
       "• Placement Assistance",
@@ -88,7 +88,7 @@ export default function CoursesDropdown() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <button className="flex items-center  [font-family:var(--font-raleway)] gap-2 text-white bg-cyan-600 px-4 py-2 rounded-md hover:bg-cyan-700 transition-colors">
+      <button className="flex items-center  [font-family:var(--font-raleway)] gap-2 text-cyan-950 bg-white px-4 py-2 rounded-md hover:bg-neutral-200 transition-colors">
         Courses
         <ChevronDown
           size={18}

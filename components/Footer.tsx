@@ -9,7 +9,10 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-cyan-950 [font-family:var(--font-raleway)] text-cyan-100 px-4 sm:px-6 py-8 sm:py-12 break-words">
+    <footer
+      id="contact"
+      className="bg-cyan-950 [font-family:var(--font-raleway)] text-cyan-100 px-4 sm:px-6 py-8 sm:py-12 break-words"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Main Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-10">
