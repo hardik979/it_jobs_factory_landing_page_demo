@@ -90,7 +90,7 @@ export default function Navbar() {
             <Link href="/">
               <span className="text-2xl sm:text-3xl [font-family:var(--font-righteous)] text-yellow-300 font-bold">
                 IT{" "}
-                <span className="text-sky-300 word-spacing underline-offset-4">
+                <span className="text-sky-400 word-spacing underline-offset-4">
                   Jobs Factory
                 </span>
               </span>

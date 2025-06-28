@@ -92,7 +92,7 @@ export default function HeroSection() {
                 {[
                   { icon: Award, text: "Globally recognized certification" },
                   { icon: BookOpen, text: "Curriculum rebuilt for the AI era" },
-                  { icon: Clock, text: "12-month flexible online learning" },
+                  { icon: Clock, text: "3-month flexible online learning" },
                   { icon: Target, text: "No prior experience needed" },
                 ].map((item, i) => (
                   <div
