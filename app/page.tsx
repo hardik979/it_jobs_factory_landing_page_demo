@@ -362,7 +362,7 @@ export default function Page() {
       </section>
 
       {/* CERTIFICATION SECTION */}
-      <section className="bg-cyan-50  [font-family:var(--font-merriweather)] text-cyan-900 px-4 sm:px-6 py-20">
+      <section className="bg-cyan-50   text-cyan-900 px-4 sm:px-6 py-20">
         <div className="max-w-7xl mx-auto text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-semibold">
             Earn Your{" "}
