@@ -7,7 +7,7 @@ import { AlmaXTimeline } from "@/components/ui/TimelineDemo";
 export default function FeesPage() {
   return (
     <>
-      <section className="min-h-screen bg-cyan-950 text-white px-4 py-8 sm:px-6 lg:px-8 font-sans flex items-center">
+      <section className="min-h-screen bg-cyan-950 text-white mt-12 pt-[120px] px-4 py-8 sm:px-6 lg:px-8 font-sans flex items-center">
         <div className="w-full">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-white">
