@@ -61,10 +61,13 @@ export default function Footer() {
                   size={20}
                   className="hover:text-white cursor-pointer transition-colors"
                 />
-                <IconBrandLinkedin
-                  size={20}
-                  className="hover:text-white cursor-pointer transition-colors"
-                />
+                <a href="https://www.linkedin.com/company/it-jobs-factory/">
+                  <IconBrandLinkedin
+                    size={20}
+                    className="hover:text-white cursor-pointer transition-colors"
+                  />
+                </a>
+
                 <IconBrandTwitter
                   size={20}
                   className="hover:text-white cursor-pointer transition-colors"
