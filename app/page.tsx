@@ -90,8 +90,9 @@ export default function Page() {
       {/* HERO SECTION */}
 
       <section
-        className="text-white mt-16 min-h-screen py-4 px-4 sm:px-6 flex items-start justify-center bg-cyan-950 pt-8 sm:pt-16"
+        className="text-white mt-16  py-4 px-4 sm:px-6 flex items-start justify-center bg-cyan-950 pt-8 sm:pt-16"
         style={{
+          minHeight: "calc(100vh - 100px)",
           backgroundImage: `
       linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
