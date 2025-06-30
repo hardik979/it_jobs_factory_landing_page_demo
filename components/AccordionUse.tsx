@@ -34,7 +34,7 @@ export default function FAQAccordion() {
     {
       question: "What kind of support will I have during the course?",
       answer:
-        "We have a dedicated support team to assist you throughout the program. You can reach us via email at itjobsfactory@gmail.com or support@itjobsfactory.com or call us at +91 9425645442 Or 07582360093.",
+        "We have a dedicated support team to assist you throughout the program. You can reach us via email at Contact@itjobsfactory.com or call us at +919425645642 Or +91 6265963315.",
     },
     {
       question: "How long does it take to complete the course?",

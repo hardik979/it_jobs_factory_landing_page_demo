@@ -312,12 +312,23 @@ export default function Navbar() {
             </span>
           </div>
           <div className="flex-shrink-0 order-3 sm:order-2">
-            <span className="text-xs sm:text-sm font-semibold text-cyan-950 tracking-wide">
-              Limited Seats{" "}
-              <span className="underline underline-offset-2 font-bold whitespace-nowrap">
-                Join Now
-              </span>
-            </span>
+            <Link href={"/bootcamp"}>
+              {" "}
+              <motion.button
+                className="text-xs sm:text-sm px-3 py-1.5 rounded-2xl  bg-green-700 font-semibold text-white tracking-wide"
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 1.5,
+                  ease: "easeInOut",
+                }}
+              >
+                Limited Seats{" "}
+                <span className="underline underline-offset-2 font-bold whitespace-nowrap">
+                  Join Now
+                </span>
+              </motion.button>
+            </Link>
           </div>
           <div className="flex justify-center sm:justify-end order-2 sm:order-3">
             <a

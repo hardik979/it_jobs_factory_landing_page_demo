@@ -32,7 +32,8 @@ export default function Footer() {
                 <p className="text-sm text-cyan-300 break-all sm:break-normal">
                   Contact@itjobsfactory.com
                 </p>
-                <p className="text-sm text-cyan-300">+91 9993244018</p>
+                <p className="text-sm text-cyan-300">+91 6265963315</p>
+                <p className="text-sm text-cyan-300">+91 9425645642</p>
               </div>
 
               <div>
