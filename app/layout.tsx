@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Merriweather, Inter, Righteous } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const merriweather = Merriweather({
   variable: "--font-merriweather",
@@ -39,6 +40,7 @@ export default function RootLayout({
         className={` ${merriweather.variable} ${inter.variable} ${righteous.variable}  [font-family:var(--font-inter)] antialiased`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
