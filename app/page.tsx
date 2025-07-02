@@ -23,6 +23,7 @@ import {
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Page() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -201,11 +202,14 @@ export default function Page() {
 
             {/* Combined Image and Form - Now appears second on mobile */}
             <div className="lg:col-span-2 rounded-xl overflow-hidden shadow-2xl mt-4 bg-gradient-to-br from-slate-900 via-cyan-900 to-slate-900 order-2 max-w-md mx-auto lg:mx-0 w-full">
-              <div className="h-32 sm:h-40 lg:h-48 xl:h-56 overflow-hidden">
-                <img
+              <div className="h-32 sm:h-40 lg:h-48 xl:h-56 relative overflow-hidden">
+                <Image
                   src="/code3.png"
                   alt="Hero Image"
-                  className="w-full h-full object-cover object-center"
+                  fill // ✅ this tells Next.js to stretch image to fill parent
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority // optional: remove if not above the fold
                 />
               </div>
               <div className="p-4 sm:p-5 text-white">

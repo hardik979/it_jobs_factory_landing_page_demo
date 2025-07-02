@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -97,11 +98,13 @@ export default function PopupModal() {
           </button>
 
           {/* Left Image - Hidden on very small screens, visible on sm+ */}
-          <div className="hidden sm:block w-full md:w-1/2 h-32 sm:h-48 md:h-auto flex-shrink-0">
-            <img
+          <div className="hidden sm:block w-full md:w-1/2 h-32 sm:h-48 md:h-auto relative flex-shrink-0 overflow-hidden">
+            <Image
               src="/code.jpg"
               alt="Internship Promo"
-              className="object-cover w-full h-full"
+              fill // ✅ fill the parent container
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
 
