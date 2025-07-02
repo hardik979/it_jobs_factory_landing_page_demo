@@ -315,7 +315,7 @@ export default function Navbar() {
             <Link href={"/bootcamp"}>
               {" "}
               <motion.button
-                className="text-xs sm:text-sm px-3 py-1.5 rounded-2xl  bg-green-700 font-semibold text-white tracking-wide"
+                className="text-xs sm:text-sm px-3 py-1.5 rounded-2xl  bg-green-700 hover:bg-green-800 font-semibold text-white tracking-wide"
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{
                   repeat: Infinity,

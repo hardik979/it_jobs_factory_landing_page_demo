@@ -48,7 +48,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-cyan-900 to-slate-900"></div>
 
         {/* Section 1: Hero Content */}
-        <section className="flex-1 text-white pt-[100px] sm:pt-[120px] pb-8 px-4 sm:px-6 lg:px-10 relative z-10 flex items-center">
+        <section className="flex-1 text-white pt-[120px] sm:pt-[140px] lg:pt-[160px] pb-8 px-4 sm:px-6 lg:px-10 relative z-10 flex items-center">
           <div className="max-w-7xl mx-auto w-full">
             <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] items-center gap-8 lg:gap-12">
               {/* LEFT: MAIN CONTENT */}

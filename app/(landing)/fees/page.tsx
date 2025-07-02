@@ -6,7 +6,7 @@ import { AlmaXTimeline } from "@/components/ui/TimelineDemo";
 export default function FeesPage() {
   return (
     <>
-      <section className="min-h-screen bg-gradient-to-br from-cyan-950 via-cyan-900 to-slate-900 text-white mt-12 pt-8 px-4 py-6 sm:px-6 lg:px-8 font-sans relative overflow-hidden flex items-center">
+      <section className="min-h-screen bg-gradient-to-br from-cyan-950 via-cyan-900 to-slate-900 text-white pt-[120px] sm:pt-[140px] lg:pt-[160px] mt-12 px-4 py-6 sm:px-6 lg:px-8 font-sans relative overflow-hidden flex items-center">
         {/* Background Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-32 h-32 bg-cyan-400 rounded-full blur-3xl"></div>

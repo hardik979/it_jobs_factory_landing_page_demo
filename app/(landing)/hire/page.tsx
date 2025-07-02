@@ -65,7 +65,7 @@ export default function HireFromUsSection() {
   return (
     <>
       <ToastContainer position="top-center" autoClose={3000} />
-      <section className="bg-cyan-950 pt-[200px] text-white px-6 py-20 min-h-screen flex items-center">
+      <section className="bg-cyan-950 pt-[120px] sm:pt-[140px] lg:pt-[160px] text-white px-6 py-20 min-h-screen flex items-center">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12">
           {/* Left: Value Prop */}
           <div className="flex-1">

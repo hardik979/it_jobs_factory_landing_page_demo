@@ -23,7 +23,6 @@ import {
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Page() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -88,11 +87,9 @@ export default function Page() {
       </a>
 
       {/* HERO SECTION */}
-
       <section
-        className="text-white mt-16  py-4 px-4 sm:px-6 flex items-start justify-center bg-cyan-950 pt-8 sm:pt-16"
+        className="text-white pt-[120px] sm:pt-[140px] lg:pt-[160px] py-4 px-4 sm:px-6 flex items-center justify-center bg-cyan-950 min-h-screen"
         style={{
-          minHeight: "calc(100vh - 100px)",
           backgroundImage: `
       linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px)
@@ -100,16 +97,16 @@ export default function Page() {
           backgroundSize: "40px 40px",
         }}
       >
-        <div className="w-full max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start mb-8 lg:mb-12">
+        <div className="w-full max-w-7xl h-full flex flex-col justify-center">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 items-center mb-6 lg:mb-8">
             {/* Title Content - Now appears first on mobile */}
             <div className="lg:col-span-3 order-1">
-              <div className="inline-flex items-center gap-2 px-3 py-2 rounded-md bg-white text-cyan-900 text-sm font-medium mb-4 w-fit shadow">
+              <div className="inline-flex items-center gap-2 px-3 py-2 rounded-md bg-white text-cyan-900 text-xs sm:text-sm font-medium mb-3 w-fit shadow">
                 <IconCalendar size={16} className="text-cyan-900" />
                 <span>Few seats left — Enroll now to secure your spot!</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 leading-tight">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 lg:mb-4 leading-tight">
                 <RotatingText
                   texts={[
                     "Build Your Career in Tech with Real Industry Skills",
@@ -131,17 +128,17 @@ export default function Page() {
                 />
               </h1>
 
-              <div className="flex items-center gap-2 text-sm mt-6 mb-4 text-white">
+              <div className="flex items-center gap-2 text-xs sm:text-sm mt-4 mb-3 text-white">
                 <IconBuildingBank size={16} className="text-sky-400" />
                 <span>
                   Trusted by Hiring Partners like TCS, IBM, and Accenture
                 </span>
               </div>
 
-              <div className="space-y-3 text-sm text-white word-spacing">
+              <div className="space-y-2 text-xs sm:text-sm text-white word-spacing">
                 <div className="flex items-start gap-2">
                   <IconCircleCheckFilled
-                    size={16}
+                    size={14}
                     className="text-green-400 mt-0.5 flex-shrink-0"
                   />
                   <span>
@@ -151,7 +148,7 @@ export default function Page() {
                 </div>
                 <div className="flex items-start gap-2">
                   <IconCircleCheckFilled
-                    size={16}
+                    size={14}
                     className="text-green-400 mt-0.5 flex-shrink-0"
                   />
                   <span>
@@ -160,7 +157,7 @@ export default function Page() {
                 </div>
                 <div className="flex items-start gap-2">
                   <IconCircleCheckFilled
-                    size={16}
+                    size={14}
                     className="text-green-400 mt-0.5 flex-shrink-0"
                   />
                   <span>
@@ -169,7 +166,7 @@ export default function Page() {
                 </div>
                 <div className="flex items-start gap-2">
                   <IconCircleCheckFilled
-                    size={16}
+                    size={14}
                     className="text-green-400 mt-0.5 flex-shrink-0"
                   />
                   <span>
@@ -179,7 +176,7 @@ export default function Page() {
                 </div>
                 <div className="flex items-start gap-2">
                   <IconCircleCheckFilled
-                    size={16}
+                    size={14}
                     className="text-green-400 mt-0.5 flex-shrink-0"
                   />
                   <span>
@@ -188,14 +185,14 @@ export default function Page() {
                 </div>
               </div>
 
-              <div className="mt-6 flex gap-4 flex-wrap">
+              <div className="mt-4 flex gap-3 sm:gap-4 flex-wrap">
                 <a href={"/brochure"} target="_blank" rel="noopener noreferrer">
-                  <button className="bg-cyan-600 text-white hover:bg-cyan-700 px-5 py-2 rounded-md text-sm">
+                  <button className="bg-cyan-600 text-white hover:bg-cyan-700 px-4 sm:px-5 py-2 rounded-md text-xs sm:text-sm transition-colors">
                     Explore Track
                   </button>
                 </a>
                 <Link href={"/bootcamp"}>
-                  <button className="bg-cyan-950 text-yellow-400 border border-yellow-400 hover:bg-yellow-500 hover:text-cyan-950 px-5 py-2 rounded-md transition text-sm">
+                  <button className="bg-cyan-950 text-yellow-400 border border-yellow-400 hover:bg-yellow-500 hover:text-cyan-950 px-4 sm:px-5 py-2 rounded-md transition text-xs sm:text-sm">
                     Start Your Career
                   </button>
                 </Link>
@@ -203,16 +200,16 @@ export default function Page() {
             </div>
 
             {/* Combined Image and Form - Now appears second on mobile */}
-            <div className="lg:col-span-2  rounded-xl overflow-hidden shadow-2xl bg-gradient-to-br from-slate-900 via-cyan-900 to-slate-900 order-2 max-w-md mx-auto lg:mx-0 w-full">
-              <div className="h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 overflow-hidden">
+            <div className="lg:col-span-2 rounded-xl overflow-hidden shadow-2xl mt-4 bg-gradient-to-br from-slate-900 via-cyan-900 to-slate-900 order-2 max-w-md mx-auto lg:mx-0 w-full">
+              <div className="h-32 sm:h-40 lg:h-48 xl:h-56 overflow-hidden">
                 <img
                   src="/code3.png"
                   alt="Hero Image"
                   className="w-full h-full object-cover object-center"
                 />
               </div>
-              <div className="p-4 sm:p-6 text-white">
-                <h3 className="text-lg sm:text-xl font-semibold mb-4 text-center text-white">
+              <div className="p-4 sm:p-5 text-white">
+                <h3 className="text-base sm:text-lg font-semibold mb-3 text-center text-white">
                   Book Your Free Career Counseling
                 </h3>
                 <form onSubmit={handleSubmit} className="space-y-3">
@@ -225,7 +222,7 @@ export default function Page() {
                       setFormData({ ...formData, name: e.target.value })
                     }
                     required
-                    className="w-full px-3 py-2 border border-cyan-700 bg-cyan-800 text-white placeholder-cyan-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 text-sm"
+                    className="w-full px-3 py-2 border border-cyan-700 bg-cyan-800 text-white placeholder-cyan-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 text-xs sm:text-sm"
                   />
                   <input
                     type="text"
@@ -236,11 +233,11 @@ export default function Page() {
                       setFormData({ ...formData, education: e.target.value })
                     }
                     required
-                    className="w-full px-3 py-2 border border-cyan-700 bg-cyan-800 text-white placeholder-cyan-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 text-sm"
+                    className="w-full px-3 py-2 border border-cyan-700 bg-cyan-800 text-white placeholder-cyan-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 text-xs sm:text-sm"
                   />
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                      <span className="text-cyan-300 font-medium text-sm">
+                      <span className="text-cyan-300 font-medium text-xs sm:text-sm">
                         +91
                       </span>
                     </div>
@@ -256,14 +253,14 @@ export default function Page() {
                       pattern="\d{10}"
                       maxLength={10}
                       required
-                      className="w-full pl-12 px-3 py-2 border border-cyan-700 bg-cyan-800 text-white placeholder-cyan-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 text-sm"
+                      className="w-full pl-12 px-3 py-2 border border-cyan-700 bg-cyan-800 text-white placeholder-cyan-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-400 text-xs sm:text-sm"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-white text-cyan-900 hover:bg-slate-200 hover:text-cyan-800 py-2 rounded-md font-semibold transition text-sm disabled:opacity-50"
+                    className="w-full bg-white text-cyan-900 hover:bg-slate-200 hover:text-cyan-800 py-2 rounded-md font-semibold transition text-xs sm:text-sm disabled:opacity-50"
                   >
                     {isSubmitting ? "Submitting..." : "Submit"}
                   </button>
@@ -271,42 +268,9 @@ export default function Page() {
               </div>
             </div>
           </div>
-
-          {/* Quick Stats Section - Now positioned below the main content and form */}
-          <div className="w-full mt-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-6">
-              {/* Quick Stats */}
-              <div className="bg-gradient-to-br from-cyan-800/50 to-slate-800/50 backdrop-blur-sm rounded-lg p-4 border border-cyan-700/30">
-                <div className="text-2xl lg:text-3xl font-bold text-sky-400 mb-1">
-                  98%
-                </div>
-                <div className="text-sm text-cyan-200">Job Placement Rate</div>
-              </div>
-
-              <div className="bg-gradient-to-br from-cyan-800/50 to-slate-800/50 backdrop-blur-sm rounded-lg p-4 border border-cyan-700/30">
-                <div className="text-2xl lg:text-3xl font-bold text-sky-400 mb-1">
-                  3 Months
-                </div>
-                <div className="text-sm text-cyan-200">Fast-Track Training</div>
-              </div>
-
-              <div className="bg-gradient-to-br from-cyan-800/50 to-slate-800/50 backdrop-blur-sm rounded-lg p-4 border border-cyan-700/30">
-                <div className="text-2xl lg:text-3xl font-bold text-sky-400 mb-1">
-                  6 LPA
-                </div>
-                <div className="text-sm text-cyan-200">Minimum Package</div>
-              </div>
-
-              <div className="bg-gradient-to-br from-cyan-800/50 to-slate-800/50 backdrop-blur-sm rounded-lg p-4 border border-cyan-700/30">
-                <div className="text-2xl lg:text-3xl font-bold text-sky-400 mb-1">
-                  Live & Self Paced
-                </div>
-                <div className="text-sm text-cyan-200">Learning</div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
+      {/*Hero section ended */}
       {/* CERTIFICATION SECTION */}
       <section className="bg-cyan-50   text-cyan-900 px-4 sm:px-6 py-20">
         <div className="max-w-7xl mx-auto text-center mb-10">
